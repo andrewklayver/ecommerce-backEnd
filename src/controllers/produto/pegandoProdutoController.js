@@ -1,8 +1,7 @@
-
-const pegandoUsuarioController = async (req,res)=>{
-    let usuario = require('../../models/usuario');
-    const usuarios = await usuario.findAll();
-    return res.status(200).json({usuarios: usuarios})
+const pegandoProdutoController = async (req,res)=>{
+    let produto = require('../../models/produto');
+    const produtos = await produto.findAll();
+    return res.status(200).json({produtos: produtos})
 }
 
-module.exports ={ pegandoUsuarioController };
+module.exports ={ pegandoProdutoController };

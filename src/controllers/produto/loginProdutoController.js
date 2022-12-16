@@ -1,20 +1,20 @@
 const { compare } = require('bcrypt');
 
-const loginUsuarioController = async (req,res)=>{
-    let usuario = require('../../models/usuario');
+const loginProdutoController = async (req,res)=>{
+    let produto = require('../../models/produto');
     const { email, senha } = req.body;
-    const usuarioExistente = await usuario.findOne({ where: { email: email}});
-    console.log(usuarioExistente);
-    if(!usuarioExistente){
+    const produtoExistente = await produto.findOne({ where: { email: email}});
+    console.log(produtoExistente);
+    if(!produtoExistente){
         return res.json({message: "email ou senha invalido"});
     }
-    const senhaMatch = await compare(senha, usuarioExistente.senha);
+    const senhaMatch = await compare(senha, produtoExistente.senha);
     if(!senhaMatch){
         return res.json({message: "email ou senha invalido"});
     }
-    return res.json({usuario: usuarioExistente});
+    return res.json({produto: produtoExistente});
 }
 
-module.exports = loginUsuarioController;
+module.exports = loginProdutoController;
 
 

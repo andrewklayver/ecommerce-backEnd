@@ -1,10 +1,10 @@
 
-const pegandoUsuarioPkController = async (req,res)=>{
-    const curso = require('../../models/curso');
-    let usuario = require('../../models/usuario');
+const pegandoProdutoPkController = async (req,res)=>{
+    
+    let produto = require('../../models/produto');
     const id = req.params.id;
-    const usuarios = await usuario.findByPk(id, { include: curso});
-    return res.status(200).json({usuarios: usuarios})
+    const produtos = await produto.findByPk(id);
+    return res.status(200).json({produtos: produtos})
 }
 
-module.exports =  pegandoUsuarioPkController ;
+module.exports =  pegandoProdutoPkController ;
